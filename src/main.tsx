@@ -8,6 +8,7 @@ import RecipesPage from './Pages/RecipesPage';
 import AboutUsPage from './Pages/AboutUsPage';
 import LoginPage from './Pages/LoginPage';
 import RecipesDetailedPage from './Pages/RecipesDetailedPage';
+import './index.css';
 
 const router = createBrowserRouter([
 	{
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
 		  element: <RecipesPage />,
 		},
 		{
-			path: "/recipes/:id",
+			path: "/recipe/:id",
 			element: <RecipesDetailedPage />
 		},
 		{

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import RecipeCard from "./RecipeCard";
 
-export default function Data(){
+export default function FavouriteRecipes(){
 	const [recipeCardData, setRecipeCardData] = useState<RecipeData>(null);
 	const getData = async () => {
-		const result = await supabase.from('recipes').select('*')
+		const result = await supabase.from('recipes').select('*').order('rating', {ascending: false}).limit(3);
 		return result;
 	}
 
@@ -26,9 +26,12 @@ export default function Data(){
 		getData().then((result) => {setRecipeCardData(result.data);});
 	}, [])
 
-	return <div>
+	return <div className="mt-3 font-semibold flex-col flex items-center mb-10">
+		<h2 className="text-xl">Die beliebtesten Rezepte</h2>
+		<div className="flex ">
 		{recipeCardData?.map((result) => {
 			return <RecipeCard {...result}  />
 		})}
+		</div>
 	</div>
 }

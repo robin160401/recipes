@@ -1,7 +1,7 @@
-import Data from "../components/Data"
+import FavouriteRecipes from "../components/FavouriteRecipes"
 
 export default function HomePage(){
-	return <>HomePage
-	<Data />
-	</>
+	return <div className="">
+	<FavouriteRecipes />
+	</div>
 }

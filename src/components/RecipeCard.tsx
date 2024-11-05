@@ -2,20 +2,20 @@ import { Link } from "react-router-dom";
 
 interface RecipeProps {
 	category_id: string | null;
-	created_at: string;
-	description: string;
-	id: string;
-	instructions: string;
-	name: string;
-	servings: number;
-	image_url: string;
-	rating: string;
+    created_at: string;
+    description: string;
+    id: string;
+    image_url: string | null;
+    instructions: string;
+    name: string;
+    rating: number | null;
+    servings: number;
 }
 
 export default function RecipeCard(props: RecipeProps){
 	return <div className="w-60 rounded-xl m-5 bg-slate-200">
 		<div className="h-32">
-			<img src={props.image_url} alt="" className="w-full h-full object-cover rounded-t-xl" />
+			<img src={props.image_url!} alt="" className="w-full h-full object-cover rounded-t-xl" />
 		</div>
 		<div className="ml-3 mb-8">
 			<h1 className="text-lg font-bold mt-5 mb-2">{props.name}</h1>

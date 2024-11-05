@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 
 export default function RecipesDetailedPage(){
 	const [recipe, setRecipe] = useState<RecipeData | null>(null);
-
 	const { id } = useParams();
 
 
@@ -28,30 +27,28 @@ export default function RecipesDetailedPage(){
 			)
 			`)
 		.eq('id', searchId)
-		console.log(result.data)
+		.single()
 		return result;
 	}
 	type RecipeData = QueryData<ReturnType<typeof getRecipeDetails>>;
 
 	useEffect(() => {
 		if (id)
-			getRecipeDetails(id).then((result) => {setRecipe(result.data)})
+			getRecipeDetails(id).then((result) => setRecipe(result.data))
 	},[]);
 
 	return <div>
 		<p>Zutaten:</p>
-		{recipe?.map((el) => {
-			return <div key={el.id}>
-				{el.ingredients.map((el) => <li key={el.id}>{el.name}</li>)}
+			<div>
+				{recipe?.ingredients.map((el) => <li key={el.name}>{el.name}</li>)}
 			</div>
-		})}
 		<p>Zubereitung</p>
-		{recipe?.map((el) => <div>
-			{el.instructions}
-		</div>)}
+		<div>
+			{recipe?.instructions}
+		</div>
 		<p>Zusätzliche Informationen</p>
-		{recipe?.map((el) => <div>
-			{el.description}
-		</div>)}
+		<div>
+			{recipe?.description}
+		</div>
 	</div>
 }

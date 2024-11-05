@@ -14,11 +14,11 @@ export default function FavouriteRecipes(){
     	created_at: string;
     	description: string;
     	id: string;
+    	image_url: string | null;
     	instructions: string;
     	name: string;
+    	rating: number | null;
     	servings: number;
-		image_url: string;
-		rating: string;
 	}[] 
 	| null;
 

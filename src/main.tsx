@@ -9,6 +9,7 @@ import AboutUsPage from './Pages/AboutUsPage';
 import LoginPage from './Pages/LoginPage';
 import RecipesDetailedPage from './Pages/RecipesDetailedPage';
 import './index.css';
+import AddRecipePage from './Pages/AddRecipePage';
 
 const router = createBrowserRouter([
 	{
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
 		  path: "/login",
 		  element: <LoginPage />,
 		},
+		{
+			path: "/addrecipe",
+			element: <AddRecipePage />
+		}
 	  ],
 	},
   ]);

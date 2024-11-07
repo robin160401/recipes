@@ -12,7 +12,8 @@ export default function Header(){
 			</div>
 			<nav className="font-bold">
 				<Link to="/" className="mr-10">Home</Link> 
-				<Link to="/recipes" className="mr-10">Rezepte</Link> 
+				<Link to="/recipes" className="mr-10">Rezepte</Link>
+				<Link to="/addrecipe" className="mr-10">Neues Rezept</Link>
 				<Link to="/aboutus" className="">Über uns</Link>
 				<Link to="/login" className="ml-40 mr-10">Login</Link>
 			</nav>

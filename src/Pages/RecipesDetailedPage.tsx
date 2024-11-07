@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { supabase } from "../lib/supabase";
 import { QueryData } from "@supabase/supabase-js";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function RecipesDetailedPage(){
 	const [recipe, setRecipe] = useState<RecipeData | null>(null);
@@ -38,7 +38,7 @@ export default function RecipesDetailedPage(){
 	},[]);
 
 	return <div>
-		<p>Zutaten:</p>
+		<p className="text-3xl bg-red-700">Zutaten:</p>
 			<div>
 				{recipe?.ingredients.map((el) => <li key={el.name}>{el.name}</li>)}
 			</div>

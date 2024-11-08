@@ -13,7 +13,7 @@ interface RecipeProps {
 }
 
 export default function RecipeCard(props: RecipeProps){
-	return <div className="w-60 rounded-xl m-5 bg-slate-200">
+	return <div className="w-1/3 rounded-xl m-5 bg-slate-200">
 		<div className="h-32">
 			<img src={props.image_url!} alt="" className="w-full h-full object-cover rounded-t-xl" />
 		</div>

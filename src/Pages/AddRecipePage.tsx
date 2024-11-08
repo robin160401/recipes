@@ -26,14 +26,19 @@ export default function AddRecipePage(){
 			const result = await supabase.from("recipes").insert({
 				name: nameInputRef.current!.value,
 				description: descriptionInputRef.current!.value,
-				portions: portionsInputRef.current!.value,
 				instructions: instructionsInputRef.current!.value,
 				category_id: categorySelectRef.current!.value
 			});
 			console.log(result);
 		}}>
 			<label>Name:</label>
-			<input type="text" ref={nameInputRef} name="name" required/>
+			<input
+				type="text"
+				value={ingredient.name}
+				onChange={(e) => setIngredients((oldIngredients)=>(produce(oldIngredients, (ingredientsDraft) => {
+					ingredientsDraft[index].name = e.target.value;
+				})))}
+				/>
 			<label>Description:</label>
 			<input type="text" ref={descriptionInputRef} name="description" required/>
 			<label>Portions:</label>

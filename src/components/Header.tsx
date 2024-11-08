@@ -18,9 +18,5 @@ export default function Header(){
 				<Link to="/login" className="ml-40 mr-10">Login</Link>
 			</nav>
 		</div>
-		<div className="h-80">
-			<h2 className="">Lassen Sie sich inspirieren, kochen Sie mit Leidenschaft und erlben sie unvergessliche Momente bei Tisch.</h2>
-			<img src={hero} alt="" className="w-full h-72 object-cover"/>
-		</div>
 	</header>
 }

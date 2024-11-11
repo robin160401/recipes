@@ -36,9 +36,10 @@ export default function RecipesDetailedPage(){
 		if (id)
 			getRecipeDetails(id).then((result) => setRecipe(result.data))
 	},[]);
-
+	if (recipe?.image_url)
 	return <div>
-		<p className="text-3xl bg-red-700">Zutaten:</p>
+		<img src={recipe.image_url} alt="" className="w-full h-80 w-100 object-cover"/>
+		<p className="text-3xl">Zutaten:</p>
 			<div>
 				{recipe?.ingredients.map((el) => <li key={el.name}>{el.name}</li>)}
 			</div>

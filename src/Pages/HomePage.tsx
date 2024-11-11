@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import RecipeCard from "../components/RecipeCard";
+import RecipeCard from "../components/BestRatedRecipeCard";
 import { supabase } from "../lib/supabase";
 import hero from "../assets/img/heroimgrecipes.jpeg";
+import BestRatedRecipeCard from "../components/BestRatedRecipeCard";
 export default function HomePage(){
 	const [recipeCardData, setRecipeCardData] = useState<RecipeData>(null);
 	const getData = async () => {
@@ -36,7 +37,7 @@ export default function HomePage(){
 			<h2 className="text-2xl mb-8">Die beliebtesten Rezepte</h2>
 			<div className="flex justify-center gap-4">
 			{recipeCardData?.map((result) => {
-				return <RecipeCard {...result}  />
+				return <BestRatedRecipeCard {...result}  />
 			})}
 			</div>
 		</div>

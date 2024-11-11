@@ -8,7 +8,7 @@ export default function Footer(){
 	return <footer className="bg-yellow-400 flex h-40">
 		<div className="flex h-12 ml-20 mt-12">
 			<img src={logo} alt="" className="h-8"/>
-			<p className="text-3xl mr-40 ml-6">Die Rezeptwelt</p>
+			<p className="text-3xl mr-40 ml-6 w-80">Die Rezeptwelt</p>
 		</div>
 		<div className="mt-8 text-xl font-semibold">
 			<p className="mb-5">Social Media</p>

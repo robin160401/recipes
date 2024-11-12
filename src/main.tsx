@@ -1,6 +1,5 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import Header from "./components/Header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from './Pages/HomePage';
 import Layout from './components/Layout';
@@ -10,6 +9,7 @@ import LoginPage from './Pages/LoginPage';
 import RecipesDetailedPage from './Pages/RecipesDetailedPage';
 import './index.css';
 import AddRecipePage from './Pages/AddRecipePage';
+import { UserContextProvider } from './context/userContext';
 
 const router = createBrowserRouter([
 	{
@@ -48,6 +48,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+	<UserContextProvider>
+    	<RouterProvider router={router} />
+	</ UserContextProvider>
   </StrictMode>,
 )

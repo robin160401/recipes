@@ -38,9 +38,17 @@ export default function RecipesPage(){
 
 	return (
 	<div className="">
-		<div className="">
-			<h2 className="">Lassen Sie sich inspirieren, kochen Sie mit Leidenschaft und erleben sie unvergessliche Momente bei Tisch.</h2>
-			<img src={hero} alt="" className="w-full h-80 w-100 object-cover"/>
+		<div className="w-full h-80 w-100 object-cover flex items-center justify-center" style={{ 
+    		backgroundImage: 'url("https://s3-alpha-sig.figma.com/img/d0c1/3ace/f719ec8806ea906f47143c2b20b269d5?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CCplVzweHBOzh6fIYKOM7p9wgt1M4cqiV2iRj94TR3yTx1nIK1ar3r3FMm3CegrFR~w51A7BAyQhnuNkLjat5B2icKBmv82UFqKLRqtN27fORkujnE58nwnqAfBP8T~o8SGSvDSuX8cyDpGNP1Lwx6nK~l2u-JFCscqzrrgvvJ1gEh0lKxi73Ac2dfSZuqymts383~4iK2ldAaWDyuk-71rVXnqIRFON6ClKcMiPYr1PSP2aKdbuZHSuxVdOiNzV4n8NadhmSR5I1D1M9E1~tu2ORWrk4LbfvkPz3~j8zKdrEfiqCn8iLj~PEvHJF7uMfSwCxomHJ70FaRe~2q4lVg__")',
+    		backgroundSize: 'cover',
+    		backgroundPosition: 'center',
+    		backgroundRepeat: 'no-repeat',
+    		backgroundBlendMode: 'overlay',
+   			backgroundColor: 'rgba(0, 0, 0, 0.6)',
+		}}>
+			<h2 className="text-2xl text-white w-4/6 text-center">
+				Lassen Sie sich inspirieren, kochen Sie mit Leidenschaft und erleben sie unvergessliche Momente bei Tisch.
+			</h2>
 		</div>
 		<div className="font-semibold flex-col flex items-center mt-8">
 			<h2 className="text-2xl mb-8">Die beliebtesten Rezepte</h2>

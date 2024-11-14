@@ -1,27 +1,75 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import { useUserContext } from "../context/userContext";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+})
+
 
 export default function RegistrationPage() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { setUser } = useUserContext();
 
+	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
+		defaultValues: {
+		  username: "",
+		},
+	  })
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		const result = await supabase.auth.signUp({
+		  email,
+		  password,
+		  options: {
+			data: { first_name: firstname, last_name: lastname },
+		  },
+		});
+		if (result.error) {
+		  alert(result.error.message);
+		} else {
+		  setUser(result.data.user);
+		}
+	  };
+
 	return (
-		<div>
-			<h1>Sign Up</h1>
-			<form onSubmit={async (event) => {
-				event.preventDefault();
-				const result = await supabase.auth.signUp({email, password});
-				if (result.error)
-					alert(result.error.message);
-				else
-					setUser(result.data.user);
-			}}>
-				<input type="text" placeholder="email" value={email} onChange={(event) => setEmail(event.target.value)}/>
-				<input type="text" placeholder="password" value={password} onChange={(event) => setPassword(event.target.value)}/>
-				<button>Sign up</button>
-			</form>
-		</div>
+		<Form {...form}>
+		<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+		  <FormField
+			control={form.control}
+			name="username"
+			render={({ field }) => (
+			  <FormItem>
+				<FormLabel>Username</FormLabel>
+				<FormControl>
+				  <Input placeholder="shadcn" {...field} />
+				</FormControl>
+				<FormDescription>
+				  This is your public display name.
+				</FormDescription>
+				<FormMessage />
+			  </FormItem>
+			)}
+		  />
+		  <Button type="submit">Submit</Button>
+		</form>
+	  </Form>
 	)
 }

@@ -73,7 +73,7 @@ export default function RecipeCreatePage() {
   console.log(ingredients);
 
   return (
-	<div className="flex flex-col items-center">
+	<div className="flex flex-col items-center mb-10">
 		<form 
 			className="w-3/5"
 			onSubmit={handleSubmit}>
@@ -121,7 +121,7 @@ export default function RecipeCreatePage() {
 				{ingredients.map((ingredient, index) => {
 					return (
 					<div key={index}>
-						<p>Ingredient</p>
+						<p className="text-xl mt-4 font-medium">Ingredient</p>
 						<Input
 						type="text"
 						value={ingredient.name}
@@ -157,6 +157,7 @@ export default function RecipeCreatePage() {
 						})))
 						}
 						/>
+						<div className="h-0.5 m-1 bg-black"></div>
 					</div>
 					);
 				})}
